@@ -5,7 +5,6 @@ void pop(void);
 void display(void);
 int main()
 {
-    //clrscr();
     top=-1;
     printf("\n Enter the size of STACK[MAX=100]:");
     scanf("%d",&n);
@@ -88,5 +87,4 @@ void display()
     {
         printf("\n The STACK is empty");
     }
-   
 }
