@@ -8,12 +8,11 @@ int main()
     top=-1;
     printf("\n Enter the size of STACK[MAX=100]:");
     scanf("%d",&n);
-    printf("\n\t STACK OPERATIONS USING ARRAY");
-    printf("\n\t--------------------------------");
-    printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.EXIT");
+    printf("\n\t THE STACK OPERATIONS USING ARRAY ARE \n\t ");
+    printf("\n\t 1.PUSH  \n\t 2.POP  \n\t 3.DISPLAY  \n\t 4.EXIT");
     do
     {
-        printf("\n Enter the Choice:");
+        printf("\n Choose an operation:");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -34,12 +33,12 @@ int main()
             }
             case 4:
             {
-                printf("\n\t EXIT POINT ");
+                printf("\n\tSUCCESSFULLY EXITED\n\t");
                 break;
             }
             default:
             {
-                printf ("\n\t Please Enter a Valid Choice(1/2/3/4)");
+                printf ("\n\t Please Enter a Valid operation(1/2/3/4)\n\t");
             }
                 
         }
@@ -56,7 +55,7 @@ void push()
     }
     else
     {
-        printf(" Enter a value to be pushed:");
+        printf(" Enter a value to be pushed into STACK:");
         scanf("%d",&x);
         top++;
         stack[top]=x;
@@ -70,7 +69,7 @@ void pop()
     }
     else
     {
-        printf("\n\t The popped elements is %d",stack[top]);
+        printf("\n\t The popped elements in the STACK are %d",stack[top]);
         top--;
     }
 }
@@ -78,10 +77,10 @@ void display()
 {
     if(top>=0)
     {
-        printf("\n The elements in STACK \n");
+        printf("\n The remaining elements in STACK are\n");
         for(i=top; i>=0; i--)
             printf("\n%d",stack[i]);
-        printf("\n Press Next Choice");
+        printf("\n choose your next operation");
     }
     else
     {
