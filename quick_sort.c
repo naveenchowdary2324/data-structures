@@ -1,47 +1,63 @@
-#include <stdio.h>
-int quicksort(int arr[100],int f,int l)
-{
-    int i,j,pivot,temp;
-    if(f<l)
-    {
-        pivot=arr[f];
-        i=f;
-        j=l+1;
-        while(i<j)
-        {
-            do
-            {
-			i++;}
-            while(arr[i]<pivot);
-            do
-            {
-			j--;}
-            while(arr[j]>pivot);
-            if(i<j)
-            {
-                temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
-            }
-        }
-        temp=arr[f];
-        arr[f]=arr[j];
-        arr[j]=temp;
-        quicksort(arr,f,j-1);
-        quicksort(arr,j+1,l);
-    }
-}
+#include<stdio.h>
+
+void quickSort(int[], int, int);
+int  partition(int[], int, int);
+void swap(int*, int*);
+
 int main()
 {
-    int size,i,j;
-    printf("Enter the size of array:");
-    scanf("%d",&size);
-    int a[size];
-    printf("Enter the elements:");
-    for(i=0;i<size;i++)
-    scanf("%d",&a[i]);
-    quicksort(a,0,size-1);
-    for(i=0;i<size;i++)
-    printf("%d\t",a[i]);
+    int n,i;
+
+    printf("Enter Array Size\n");
+    scanf("%d",&n);
+
+    int arr[n];
+
+    printf("Enter Array Elements\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+
+    quickSort(arr,0,n-1);
+
+    printf("After the QuickSort\n");
+
+    for(i=0;i<n;i++)
+        printf("%d ",arr[i]);
+    printf("\n");
+
     return 0;
+}
+
+void quickSort(int arr[], int start, int end)
+{
+    if(start < end)
+    {
+        int pIndex = partition(arr, start, end);
+        quickSort(arr, start, pIndex-1);
+        quickSort(arr, pIndex+1, end);
+    }
+}
+
+int partition(int arr[], int start, int end)
+{
+    int pIndex = start;
+    int pivot = arr[end];
+    int i;
+    for(i = start; i < end; i++)
+    {
+        if(arr[i] < pivot)
+        {
+            swap(&arr[i], &arr[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(&arr[end], &arr[pIndex]);
+    return pIndex;
+}
+
+void swap(int *x, int *y)
+{
+    int t = *x;
+    *x = *y;
+    *y = t;
 }
